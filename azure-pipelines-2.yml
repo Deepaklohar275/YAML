@@ -1,6 +1,12 @@
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+stages:
+  - stage: stageA
+    displayName: "This is a Stage A"
+    jobs:
+      - job: jobA
+  - stage: stageB
+    displayName: "This is stage B"
+    jobs:
+      - job: jobB
