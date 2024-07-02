@@ -1,0 +1,11 @@
+stages:
+  - stage: stage1
+    pool:
+      vmImage: ubuntu-latest
+    jobs:
+      - job: job1
+  - stage: 
+    pool:
+      vmImage: windows-latest
+    jobs:
+      - job: job2
