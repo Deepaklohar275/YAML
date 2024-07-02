@@ -6,16 +6,15 @@ stages:
     jobs:
       - job: job1
   - stage: stage2
-    dependsOn: stage1
+
+    dependsOn: []
     jobs:
     - job: job2
   - stage: stage3
-    dependsOn: stage1
+    dependsOn: []
     jobs:
       - job: job3
   - stage: stage4
-    dependsOn:
-     - stage2
-     - stage3
+    dependsOn: []
     jobs:
       - job: job4 
