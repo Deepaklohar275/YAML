@@ -5,6 +5,7 @@ stages:
     jobs:
       - job: job1
   - stage: 
+    dependsOn: []
     pool:
       vmImage: windows-latest
     jobs:
