@@ -1,0 +1,17 @@
+
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+  - stage: Deployment
+    jobs:
+      - job: Deploy
+      - deployment: Test
+        environment: Test
+        strategy:
+         runOnce:
+           deploy:
+             steps:
+               - bash: echo "This is my First Deployment Demo Pipeline"
+           
