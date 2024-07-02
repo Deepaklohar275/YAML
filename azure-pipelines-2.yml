@@ -6,18 +6,22 @@ stages:
     displayName: "This is a Stage A"
     jobs:
       - job: jobA
+        displayName: "This is a job A"
 
   - stage: stageB
     displayName: "This is stage B"
     jobs:
       - job: jobB
+        displayName: "This is a Stage B"
 
   - stage: stageC
     displayName: "This is a Stage C"
     jobs:
       - job: jobC
+        displayName: "This is a Stage C"
 
   - stage: stageD
     displayName: "This is stage D"
     jobs:
       - job: jobD
+        displayName: "This is a Stage D"
