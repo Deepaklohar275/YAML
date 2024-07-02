@@ -16,4 +16,4 @@ stages:
     jobs:
       - job: 
         steps:
-          - script: "Echo A"
+          - script: "Echo HELLO YAML"
