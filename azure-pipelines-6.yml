@@ -9,10 +9,10 @@ jobs:
       - script: echo "Foo"
         condition: always()
   - job: Baar
-    
+    condition: always()
     steps:
       - script: echo "baar"
   - job: RA
-    
+    condition: Succeeded('Baar')
     steps:
       - script: echo "RA"
