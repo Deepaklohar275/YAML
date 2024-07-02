@@ -3,10 +3,18 @@ pool:
 
 stages:
   - stage: stageA
+    pool:
+      name: 'Default' 
+      demands:
+        - agent.name -equals Deepaks-MacBook-Pro
     displayName: "This is stage B"
     jobs:
       - job: jobA
-        displayName: "This is stage B"
+        displayName: "This is Job A"
+        pool:
+          vmImage: ubuntu-latest
+      - job: jobB
+        displayName: "Thi is Job B"
         
 
   - stage: stageB
