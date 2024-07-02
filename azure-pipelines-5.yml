@@ -5,6 +5,9 @@ stages:
   - stage: A
     jobs:
       - job: jobA
+        steps:
+          - task :Maven@4
+          
   - stage: B
     jobs:
       - job: jobB
