@@ -1,0 +1,15 @@
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+  - stage: A
+    jobs:
+      - job: jobA
+        timeoutInMinutes: 5
+        displayName: "This is Demo Job A"
+        cancelTimeoutInMinutes: 2
+        
+      - job: jobB
+        timeoutInMinutes: 5
+        displayName: "This is Demo Job B"
+        cancelTimeoutInMinutes: 2
