@@ -12,3 +12,7 @@ jobs:
     dependsOn: Foo
     steps:
       - script: echo "baar"
+  - job: RA
+    dependsOn: Foo
+    steps:
+      - script: echo "RA"
