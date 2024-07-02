@@ -3,9 +3,10 @@ pool:
 
 stages:
   - stage: stageA
-    
+    displayName: "This is stage B"
     jobs:
       - job: jobA
+        displayName: "This is stage B"
         
 
   - stage: stageB
