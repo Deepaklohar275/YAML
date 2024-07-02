@@ -1,0 +1,14 @@
+
+
+pool:
+  vmImage: ubuntu-latest
+
+jobs:
+  - job: Foo
+    steps:
+      - script: echo "Foo"
+        condition: always()
+  - job: Baar
+    dependsOn: Foo
+    steps:
+      - script: echo "baar"
