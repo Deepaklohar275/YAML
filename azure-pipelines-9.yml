@@ -16,6 +16,6 @@ steps:
     python3 -m pip install requests
     python3 dockerImageTags.py
     name: Tagoutput
-    echo"Tagoutput.tags"
+    echo"Tagoutput.TAGS"
 
 
