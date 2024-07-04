@@ -5,6 +5,9 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+  TAGS: 'tag1,tag2,tag3'
+
 steps:
 - script: |        
     sudo apt update
@@ -12,5 +15,7 @@ steps:
     python3 -m pip install --upgrade pip
     python3 -m pip install requests
     python3 dockerImageTags.py
+    name: Tagoutput
+    echo"Tagoutput.tags"
 
 
