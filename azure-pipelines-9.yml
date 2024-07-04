@@ -1,0 +1,16 @@
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: |        
+    sudo apt update
+    sudo apt install -y python3 python3-pip
+    python3 -m pip install --upgrade pip
+    python3 -m pip install requests
+    python3 dockerImageTags.py
+
+
