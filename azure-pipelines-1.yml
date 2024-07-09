@@ -16,5 +16,7 @@ variables:
 
 steps:
 - script: echo Hello, world!
+- script: echo $(A)
+
   displayName: 'Run a one-line script'
 
