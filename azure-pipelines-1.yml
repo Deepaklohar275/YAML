@@ -42,7 +42,7 @@ stages:
               python -c "
               import yaml
               with open('Tags.yaml', 'r') as file:
-              data = yaml.safe_load(file)
+                data = yaml.safe_load(file)
               print(f'##vso[task.setvariable variable=IMAGE_TAGS]{{data['tags']}}')"
           
 
