@@ -10,13 +10,44 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-- name: A
-  value: 2
-- template : azure-pipelines-10.yml
+  IMAGE_TAGS: ''
 
-steps:
-- script: echo Hello, world!
-- script: echo $(A)
+#appendCommitMessageToRunName:
+#steps:
+#- script: echo Hello, world!
+#- script: echo $(A)
+#
+# displayName: 'Run a one-line script'
+stages:
+  - stage: A
+    jobs:
+      - job: A
+        steps:
+        -  task: CmdLine@2
+           displayName: 'Install Python Dependencies'
+           inputs:
+            script: |
+              sudo apt update
+              sudo apt install -y python3 python3-pip
+              python3 -m pip install --upgrade pip
+              python3 -m pip install requests
+              echo "Installing pyyaml..."
+              pip install pyyaml
+            
+        - task: CmdLine@2
+          displayName: 'Run Python script to generate image tags'
+          inputs:
+            script: |
+              python dockerImageTags.py >> 
+        - script: |
+            python -c "
+            import yaml
+            with open('Tags.yaml', 'r') as file:
+            data = yaml.safe_load(file)
+            print(f'##vso[task.setvariable variable=IMAGE_TAGS]{{data['tags']}}')"
+          displayName: 'Read image tags from YAML file and set pipeline variable'
 
-  displayName: 'Run a one-line script'
-
+# Step 3: Use the set pipeline variable
+        - script: |
+            echo "Using image tags: $(IMAGE_TAGS)"
+            displayName: 'Use image tags in pipeline step'
