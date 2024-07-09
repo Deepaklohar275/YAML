@@ -39,14 +39,12 @@ stages:
           inputs:
             script: |
               python dockerImageTags.py 
-              
-        - script: |
-            python -c "
-            import yaml
-            with open('Tags.yaml', 'r') as file:
-            data = yaml.safe_load(file)
-            print(f'##vso[task.setvariable variable=IMAGE_TAGS]{{data['tags']}}')"
-          displayName: 'Read image tags from YAML file and set pipeline variable'
+              python -c "
+              import yaml
+              with open('Tags.yaml', 'r') as file:
+              data = yaml.safe_load(file)
+              print(f'##vso[task.setvariable variable=IMAGE_TAGS]{{data['tags']}}')"
+          
 
 # Step 3: Use the set pipeline variable
         - script: |
