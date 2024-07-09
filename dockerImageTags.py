@@ -1,9 +1,8 @@
 import yaml
 import requests
-
-
+tags = []
 def imagetag (url):
-    tags = []
+
     r= requests.get(url, headers=headers)
     response_dict = r.json()
     image_dicts = response_dict['results']
@@ -12,8 +11,6 @@ def imagetag (url):
         #print(image_dict['name'])
         tags.append(image_dict['name'])
     return tags
-
-
 url = "https://hub.docker.com/v2/repositories/deepaklohar/snyk/tags"
 headers = {
     'Accept': 'application/json',  # Specify that you want a JSON response
@@ -23,8 +20,7 @@ tags =imagetag(url)
 data = {'imageTags': tags}
 print(data)
 print(tags)
-
-with open('/Users/deepaklohar/Python/Day3]/A.yaml', 'w') as file:
+with open('Tags.yaml', 'w') as file:
     yaml.dump(data, file, default_flow_style=False)
 
     
@@ -40,6 +36,7 @@ with open('/Users/deepaklohar/Python/Day3]/A.yaml', 'w') as file:
 
 
     
+
 
 
 
