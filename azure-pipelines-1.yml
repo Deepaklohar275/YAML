@@ -38,7 +38,8 @@ stages:
           displayName: 'Run Python script to generate image tags'
           inputs:
             script: |
-              python dockerImageTags.py >> 
+              python dockerImageTags.py 
+              
         - script: |
             python -c "
             import yaml
