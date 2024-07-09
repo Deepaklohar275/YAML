@@ -49,4 +49,4 @@ stages:
 # Step 3: Use the set pipeline variable
         - script: |
             echo "Using image tags: $(IMAGE_TAGS)"
-            displayName: 'Use image tags in pipeline step'
+          displayName: 'Use image tags in pipeline step'
